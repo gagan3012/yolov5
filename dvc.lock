@@ -1,0 +1,23 @@
+schema: '2.0'
+stages:
+  import_files:
+    cmd: dvc get-url https://github.com/ultralytics/yolov5/releases/download/v1.0/coco128.zip
+      data/
+    outs:
+    - path: data/coco128.zip
+      md5: 90faf47c90d1cfa5161c4298d890df55
+      size: 6984509
+  coco128:
+    cmd: python unzip_data.py --input_path data/coco128.zip --output_path data/
+    deps:
+    - path: data/coco128.zip
+      md5: 90faf47c90d1cfa5161c4298d890df55
+      size: 6984509
+    - path: unzip_data.py
+      md5: 0f42cd9fdb8b09d35e4b63c40a7ed3aa
+      size: 599
+    outs:
+    - path: data/coco128
+      md5: 7939c9772712114753e9f80e48938d2d.dir
+      size: 7026676
+      nfiles: 262
