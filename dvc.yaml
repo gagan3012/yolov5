@@ -10,16 +10,13 @@ stages:
     - unzip_data.py
     outs:
     - data/coco128
+  install:
+    cmd: pip install -r requirements.txt
   train:
-    cmd: python train.py --img 640 --batch 16 --epochs 5 --data coco128.yaml --weights yolov5s.pt --cache
+    cmd: python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
     deps:
     - data/coco128
     - train.py
     outs:
       - models:
           persist: true
-      - params.yml:
-          cache: false
-    metrics:
-    - metrics.csv:
-        cache: false
