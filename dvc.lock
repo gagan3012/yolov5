@@ -21,3 +21,5 @@ stages:
       md5: 7939c9772712114753e9f80e48938d2d.dir
       size: 7026676
       nfiles: 262
+  install:
+    cmd: pip install -r requirements.txt
