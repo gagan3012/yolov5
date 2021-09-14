@@ -1,17 +1,12 @@
 stages:
   import_files:
-    cmd: dvc get-url https://github.com/ultralytics/yolov5/releases/download/v1.0/coco128.zip data/
-    outs:
-    - data/coco128.zip
-  coco128:
-    cmd: python unzip_data.py --input_path data/coco128.zip --output_path data/
-    deps:
-    - data/coco128.zip
-    - unzip_data.py
+    cmd: python train.py --data coco128.yaml
     outs:
     - data/coco128
   install:
     cmd: pip install -r requirements.txt
+    deps:
+      - requirements.txt
   train:
     cmd: python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
     deps:
