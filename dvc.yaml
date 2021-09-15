@@ -11,5 +11,5 @@ stages:
     outs:
       - runs/train:
           persist: true
-      - datasets:
+      - datasets/:
           persist: true
