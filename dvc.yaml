@@ -1,8 +1,4 @@
 stages:
-  install:
-    cmd: pip install -r requirements.txt
-    deps:
-      - requirements.txt
   train:
     cmd: python train.py --img 1000 --batch 16 --epochs 10 --data coco128.yaml --weights yolov5s.pt --cache
     deps:
