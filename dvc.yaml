@@ -4,9 +4,8 @@ stages:
     deps:
       - requirements.txt
   train:
-    cmd: python train.py --data coco128.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
+    cmd: python train.py --img 1000 --batch 16 --epochs 10 --data coco128.yaml --weights yolov5s.pt --cache
     deps:
-    - install
     - train.py
     - params.yml
     outs:
