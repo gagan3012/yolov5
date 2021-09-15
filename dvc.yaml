@@ -1,6 +1,6 @@
 stages:
   train:
-    cmd: python train.py --img 1000 --batch 16 --epochs 10 --data coco128.yaml --weights yolov5s.pt --cache
+    cmd: python train.py --img 1000 --batch 16 --epochs 1 --data coco128.yaml --weights yolov5s.pt --cache
     deps:
     - train.py
     - params.yml
