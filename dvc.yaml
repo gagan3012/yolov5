@@ -7,5 +7,5 @@ stages:
     outs:
       - runs/train:
           persist: true
-      - datasets/:
+      - datasets/coco128:
           persist: true
